@@ -1,0 +1,76 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion sdk.compileSdk
+    defaultConfig {
+        minSdkVersion sdk.minSdk
+        targetSdkVersion sdk.targetSDk
+        versionCode sdk.versionCode
+        versionName sdk.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug{
+            buildConfigField("String", "baseUrl", "\"https://newsapi.org/v2/\"")
+        }
+        release {
+            minifyEnabled false
+            buildConfigField("String", "baseUrl", "\"https://newsapi.org/v2/\"")
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    /**
+     * Support
+     */
+    implementation deps.kotlin
+    implementation deps.appCompat
+
+    /**
+     * LifeCycle
+     */
+    implementation deps.lifeCycle_ext
+    implementation deps.lifeCycle_run
+    kapt deps.lifeCycle_kapt
+
+    /**
+     * Retrofit
+     */
+    implementation deps.gson
+    implementation deps.retrofit
+    implementation deps.retrofit_con
+    implementation deps.okhttp
+
+    /**
+     * Image loader -- Glide
+     */
+    implementation deps.glide
+    implementation deps.glide_okhttp
+    kapt deps.glide_kapt
+
+    /**
+     * Dependency Injection
+     */
+    implementation deps.dagger
+    kapt deps.dagger_Kapt
+
+
+    /**
+     * TEST
+     */
+    testImplementation deps.junit
+    androidTestImplementation deps.runner
+    androidTestImplementation deps.espresso
+}

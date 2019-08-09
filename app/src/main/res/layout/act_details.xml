@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+>
+    <data>
+        <variable name="item" type="nl.tmg.dutchnews.dto.Article"/>
+    </data>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/AppTheme.AppBarOverlay">
+
+            <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"/>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:context=".ui.ActDetails">
+
+                <nl.tmg.core.widget.ImageViewCustom
+                        android:id="@+id/imgArticle"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/item_margin"
+                        app:isSquare="true"
+                        loadImage="@{item.image}"
+                        android:background="@color/separator"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:src="@tools:sample/avatars"/>
+
+                <nl.tmg.core.widget.TextViewCustom
+                        android:id="@+id/tvAuthor"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/item_margin"
+                        android:text="@{item.author}"
+                        android:textColor="@color/colorAuthor"
+                        app:layout_constraintTop_toTopOf="@id/imgArticle"
+                        app:layout_constraintStart_toEndOf="@id/imgArticle"
+                        tools:text="@tools:sample/full_names"/>
+
+                <nl.tmg.core.widget.TextViewCustom
+                        android:id="@+id/tvSource"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/item_margin"
+                        android:text="@{item.source.name}"
+                        android:textColor="@color/colorDate"
+                        app:layout_constraintStart_toEndOf="@id/imgArticle"
+                        app:layout_constraintTop_toBottomOf="@id/tvAuthor"
+                        app:layout_constraintBottom_toTopOf="@id/tvDate"
+                        tools:text="@tools:sample/full_names"/>
+
+                <nl.tmg.core.widget.TextViewCustom
+                        android:id="@+id/tvDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/item_margin"
+                        android:textColor="@color/colorDate"
+                        android:text="@{String.valueOf(item.date)}"
+                        app:layout_constraintStart_toEndOf="@id/imgArticle"
+                        app:layout_constraintTop_toBottomOf="@id/tvSource"
+                        app:layout_constraintBottom_toBottomOf="@id/imgArticle"
+                        tools:text="@tools:sample/date/ddmmyy"/>
+
+                <nl.tmg.core.widget.TextViewCustom
+                        android:id="@+id/tvTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/item_margin"
+                        android:ellipsize="end"
+                        android:textColor="@color/colorTitle"
+                        android:text="@{item.title}"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/imgArticle"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:text="@tools:sample/lorem/random"/>
+
+                <nl.tmg.core.widget.TextViewCustom
+                        android:id="@+id/tvContent"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/item_margin"
+                        android:text="@{item.content}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+                        tools:text="@tools:sample/lorem/random"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

@@ -1,18 +1,18 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion sdk.compileSdk
     defaultConfig {
         applicationId "nl.tmg.dutchnews"
-        minSdkVersion 18
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        minSdkVersion sdk.minSdk
+        targetSdkVersion sdk.targetSDk
+        versionCode sdk.versionCode
+        versionName sdk.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -20,13 +20,71 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    dataBinding {
+        enabled = true
+    }
+
+    externalNativeBuild {
+        cmake {
+            path file('CMakeLists.txt')
+        }
+    }
+
+    androidExtensions {
+        experimental = true
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    /**
+     * Support
+     */
+    implementation deps.kotlin
+    implementation deps.appCompat
+    implementation deps.constraint
+    implementation deps.material
+
+    /**
+     * Retrofit
+     */
+    implementation deps.gson
+    implementation deps.retrofit
+
+    /**
+     * Dependency Injection
+     */
+    implementation deps.dagger
+    kapt deps.dagger_Kapt
+
+    /**
+     * Room Database
+     */
+    implementation deps.room
+    kapt deps.room_kapt
+
+
+    /**
+     * Paging
+     */
+    implementation deps.paging
+
+    /**
+     * TEST
+     */
+    testImplementation deps.junit
+    androidTestImplementation deps.core
+    androidTestImplementation deps.rules
+    androidTestImplementation deps.runner
+    androidTestImplementation deps.ext_junit
+    androidTestImplementation deps.core_test
+    androidTestImplementation deps.espresso
+    androidTestImplementation deps.espresso_cont
+
+    /**
+     * Module dependency
+     */
+    implementation project(path: ':core')
 }

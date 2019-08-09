@@ -3,4 +3,15 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="separator">#868386</color>
+
+
+    <color name="colorTitle">#297C29</color>
+    <color name="colorAuthor">#806880</color>
+
+    <color name="colorDate">#777677</color>
+
+
+
 </resources>
