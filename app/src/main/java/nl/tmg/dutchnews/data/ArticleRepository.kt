@@ -22,8 +22,6 @@ class ArticleRepositoryImpl(
     }
 
     override fun getTopHeadLines(country: String): ArticleResult {
-
-
         val dataSourceFactory = localCache.getArticles()
         val boundaryCallback = TopHeadBoundaryCallback(
             pageSize    = PAGE_SIZE,
@@ -31,9 +29,7 @@ class ArticleRepositoryImpl(
             services    = services,
             localCache  = localCache
         )
-
         val networkState = boundaryCallback.networkState
-        networkState.postValue(NetworkState.LOADING)
         val data = LivePagedListBuilder(dataSourceFactory, PAGE_SIZE)
             .setBoundaryCallback(boundaryCallback)
             .build()
