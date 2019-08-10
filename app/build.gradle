@@ -4,7 +4,19 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 
+def propFile = file('../sign.properties')
+Properties props = new Properties()
+props.load(new FileInputStream(propFile))
+
 android {
+    signingConfigs {
+        tmg {
+            storeFile       file(props['storePath'])
+            storePassword   props['storePassword']
+            keyPassword     props['keyPassword']
+            keyAlias        = props['keyAlias']
+        }
+    }
     compileSdkVersion sdk.compileSdk
     defaultConfig {
         applicationId "nl.tmg.dutchnews"
@@ -13,6 +25,7 @@ android {
         versionCode sdk.versionCode
         versionName sdk.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.tmg
     }
     buildTypes {
         release {
@@ -29,6 +42,10 @@ android {
         cmake {
             path file('CMakeLists.txt')
         }
+    }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
     }
 
     androidExtensions {
