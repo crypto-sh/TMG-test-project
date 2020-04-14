@@ -1,0 +1,46 @@
+[
+  {
+    "level": "INFO",
+    "message": "Start JSON generation. Platform version: 21 min SDK version: mips64"
+  },
+  {
+    "level": "INFO",
+    "message": "rebuilding JSON /Volumes/Project/Android/Project/Challenge /dutch-news-app/app/.cxx/cmake/release/mips64/android_gradle_build.json due to:"
+  },
+  {
+    "level": "INFO",
+    "message": "- force flag, will remove stale json folder"
+  },
+  {
+    "level": "INFO",
+    "message": "removing stale contents from \u0027/Volumes/Project/Android/Project/Challenge /dutch-news-app/app/.cxx/cmake/release/mips64\u0027"
+  },
+  {
+    "level": "INFO",
+    "message": "created folder \u0027/Volumes/Project/Android/Project/Challenge /dutch-news-app/app/.cxx/cmake/release/mips64\u0027"
+  },
+  {
+    "level": "INFO",
+    "message": "executing cmake Executable : /Volumes/Project/Android/android_sdk/cmake/3.6.4111459/bin/cmake\narguments : \n-H/Volumes/Project/Android/Project/Challenge /dutch-news-app/app\n-B/Volumes/Project/Android/Project/Challenge /dutch-news-app/app/.cxx/cmake/release/mips64\n-DANDROID_ABI\u003dmips64\n-DANDROID_PLATFORM\u003dandroid-21\n-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003d/Volumes/Project/Android/Project/Challenge /dutch-news-app/app/build/intermediates/cmake/release/obj/mips64\n-DCMAKE_BUILD_TYPE\u003dRelease\n-DANDROID_NDK\u003d/Volumes/Project/Android/android_sdk/ndk-bundle\n-DCMAKE_TOOLCHAIN_FILE\u003d/Volumes/Project/Android/android_sdk/ndk-bundle/build/cmake/android.toolchain.cmake\n-DCMAKE_MAKE_PROGRAM\u003d/Volumes/Project/Android/android_sdk/cmake/3.6.4111459/bin/ninja\n-GAndroid Gradle - Ninja\njvmArgs : \n\n"
+  },
+  {
+    "level": "INFO",
+    "message": "Executable : /Volumes/Project/Android/android_sdk/cmake/3.6.4111459/bin/cmake\narguments : \n-H/Volumes/Project/Android/Project/Challenge /dutch-news-app/app\n-B/Volumes/Project/Android/Project/Challenge /dutch-news-app/app/.cxx/cmake/release/mips64\n-DANDROID_ABI\u003dmips64\n-DANDROID_PLATFORM\u003dandroid-21\n-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003d/Volumes/Project/Android/Project/Challenge /dutch-news-app/app/build/intermediates/cmake/release/obj/mips64\n-DCMAKE_BUILD_TYPE\u003dRelease\n-DANDROID_NDK\u003d/Volumes/Project/Android/android_sdk/ndk-bundle\n-DCMAKE_TOOLCHAIN_FILE\u003d/Volumes/Project/Android/android_sdk/ndk-bundle/build/cmake/android.toolchain.cmake\n-DCMAKE_MAKE_PROGRAM\u003d/Volumes/Project/Android/android_sdk/cmake/3.6.4111459/bin/ninja\n-GAndroid Gradle - Ninja\njvmArgs : \n\n"
+  },
+  {
+    "level": "INFO",
+    "message": "done executing cmake"
+  },
+  {
+    "level": "INFO",
+    "message": "write build output /Volumes/Project/Android/Project/Challenge /dutch-news-app/app/.cxx/cmake/release/mips64/build_output.txt"
+  },
+  {
+    "level": "INFO",
+    "message": "write command file /Volumes/Project/Android/Project/Challenge /dutch-news-app/app/.cxx/cmake/release/mips64/build_command.txt"
+  },
+  {
+    "level": "INFO",
+    "message": "JSON generation completed without problems"
+  }
+]

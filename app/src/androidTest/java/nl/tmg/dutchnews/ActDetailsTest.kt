@@ -2,7 +2,6 @@ package nl.tmg.dutchnews
 
 
 import android.content.Intent
-import androidx.arch.core.executor.testing.CountingTaskExecutorRule
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*

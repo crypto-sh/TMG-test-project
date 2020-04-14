@@ -1,0 +1,3 @@
+/Volumes/Project/Android/Project/Challenge /dutch-news-app/app/.cxx/cmake/debug/armeabi/CMakeFiles/edit_cache.dir
+/Volumes/Project/Android/Project/Challenge /dutch-news-app/app/.cxx/cmake/debug/armeabi/CMakeFiles/rebuild_cache.dir
+/Volumes/Project/Android/Project/Challenge /dutch-news-app/app/.cxx/cmake/debug/armeabi/CMakeFiles/native-lib.dir

@@ -2,6 +2,9 @@ package nl.tmg.dutchnews.data
 
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.PagedList
+import io.reactivex.Scheduler
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import nl.tmg.dutchnews.api.ApiServices
 import nl.tmg.dutchnews.api.TopHeadlinesReponse
 import nl.tmg.dutchnews.db.LocalCache
@@ -49,37 +52,21 @@ class TopHeadBoundaryCallback(
         networkState.postValue(NetworkState.LOADING)
 
         isRequestInProgress = true
-        services.topHeadLines(
+
+        val disposable = services.topHeadLines(
             country = country,
             pageSize = pageSize,
             page = lastRequestedPage
-        ).enqueue(object : Callback<TopHeadlinesReponse> {
-            override fun onFailure(call: Call<TopHeadlinesReponse>, t: Throwable) {
-                networkState.postValue(NetworkState.error(t.message))
-                isRequestInProgress = false
-            }
-
-            override fun onResponse(call: Call<TopHeadlinesReponse>, response: Response<TopHeadlinesReponse>) {
-                if (response.isSuccessful) {
-                    val result = response.body()?.let {
-                        if (it.status == "ok"){
-                            localCache.insertArticle(response.body()?.articles!!) {
-                                lastRequestedPage++
-                                isRequestInProgress = false
-                                networkState.postValue(NetworkState.LOADED)
-                            }
-                        }else{
-                            //hanlde error message
-                            networkState.postValue(NetworkState.error(it.message))
-                        }
-                    }
-                } else {
-                    networkState.postValue(NetworkState.error(response.message()))
+        ).observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io()).subscribe({
+                localCache.insertArticle(it.articles) {
+                    lastRequestedPage++
+                    isRequestInProgress = false
+                    networkState.postValue(NetworkState.LOADED)
                 }
-            }
-        })
-
+            }, {
+                networkState.postValue(NetworkState.error(it.message))
+                isRequestInProgress = false
+            })
     }
-
-
 }

@@ -22,6 +22,4 @@ class LocalCacheImpl(
     }
 
     override fun getArticles(): DataSource.Factory<Int, Article> = articleDao.getArticles()
-
-
 }

@@ -57,7 +57,6 @@ class ActMainTest {
         Assert.assertNotNull(recycler.adapter)
         Assert.assertEquals(recycler.adapter!!.itemCount, 0)
         onView(withId(R.id.etCountry)).perform(clearText(), typeText(country))
-
         onData(equalTo(country)).inRoot(RootMatchers.isPlatformPopup()).perform(click())
         waitForAdapterChange(recycler)
         Assert.assertNotEquals(recycler.adapter!!.itemCount, 0)
@@ -73,6 +72,7 @@ class ActMainTest {
         onView(withId(R.id.etCountry)).perform(clearText(), typeText(country))
         onData(equalTo(country)).inRoot(RootMatchers.isPlatformPopup()).perform(click())
         waitForAdapterChange(recycler)
+
         onView(withId(R.id.rvArticle)).perform(actionOnItemAtPosition<RvAdapterArticle.ArticleHolder>(0, click()))
         InstrumentationRegistry.getInstrumentation().runOnMainSync {
             ActivityLifecycleMonitorRegistry.getInstance().getActivitiesInStage(Stage.RESUMED).let {
@@ -102,6 +102,4 @@ class ActMainTest {
         }
         assertThat(latch.await(10, TimeUnit.SECONDS), CoreMatchers.`is`(true))
     }
-
-
 }

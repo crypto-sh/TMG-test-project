@@ -23,6 +23,9 @@ ext.versions = [
 
         room            : '2.2.0-alpha02',
 
+        rxJavaVersion                         : '2.1.12',
+        rxAndroidVersion                      : '2.0.2',
+        
         glide           : '4.9.0',
 
         paging          : '2.1.0',
@@ -43,6 +46,9 @@ ext.deps = [
         lifeCycle_ext : "androidx.lifecycle:lifecycle-extensions:$versions.lifeCycle",
         lifeCycle_run : "androidx.lifecycle:lifecycle-runtime:$versions.lifeCycle",
         lifeCycle_kapt: "androidx.lifecycle:lifecycle-compiler:$versions.lifeCycle",
+
+        rxAndroid                      : "io.reactivex.rxjava2:rxandroid:$versions.rxAndroidVersion",
+        rxJava                         : "io.reactivex.rxjava2:rxjava:$versions.rxJavaVersion",
 
         gson        : "com.google.code.gson:gson:$versions.gson",
         retrofit    : "com.squareup.retrofit2:retrofit:$versions.retrofit",

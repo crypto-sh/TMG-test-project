@@ -10,6 +10,5 @@ import nl.tmg.core.dto.NetworkState
 
 
 abstract class BaseViewModel : ViewModel(), LifecycleObserver {
-
     abstract fun getNetworkStatus() : LiveData<NetworkState>
 }

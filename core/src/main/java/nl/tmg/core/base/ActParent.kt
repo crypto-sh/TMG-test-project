@@ -2,6 +2,7 @@ package nl.tmg.core.base
 
 import android.content.Context
 import android.os.Bundle
+import android.os.StrictMode
 import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -42,6 +43,9 @@ abstract class ActParent<T : BaseViewModel, E : ViewDataBinding>  : AppCompatAct
                   else -> showError(it.msg)
               }
         })
+
+
+
         lifecycle.addObserver(viewModel)
     }
 

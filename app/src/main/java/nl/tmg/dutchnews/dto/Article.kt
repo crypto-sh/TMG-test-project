@@ -81,3 +81,5 @@ data class Article(
 
     }
 }
+
+fun articleGenerator() = Article(12,"title",Source("id","name" ), "", Date(), "", "Bita")

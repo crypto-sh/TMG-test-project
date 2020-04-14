@@ -13,7 +13,7 @@ import nl.tmg.dutchnews.databinding.ItemRecyclerArticleBinding
 import nl.tmg.dutchnews.dto.Article
 
 
-class RvAdapterArticle(val onItemSelected : (Article) -> Unit) : PagedListAdapter<Article,RvAdapterArticle.ArticleHolder>(Article.ArticleDiff()) {
+class RvAdapterArticle(val onItemSelected : (Article) -> Unit) : PagedListAdapter<Article, RvAdapterArticle.ArticleHolder>(Article.ArticleDiff()) {
 
     /**
      * Called when RecyclerView needs a new [ViewHolder] of the given type to represent

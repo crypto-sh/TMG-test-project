@@ -1,0 +1,16 @@
+{
+  "buildFiles": [
+    "/Volumes/Project/Android/Project/Challenge/dutch-news-app/app/CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "/Volumes/Project/Android/android_sdk/cmake/3.6.4111459/bin/cmake --build /Volumes/Project/Android/Project/Challenge/dutch-news-app/app/.cxx/cmake/debug/x86_64 --target clean"
+  ],
+  "libraries": {
+    "native-lib-Debug-x86_64": {
+      "artifactName": "native-lib",
+      "buildCommand": "/Volumes/Project/Android/android_sdk/cmake/3.6.4111459/bin/cmake --build /Volumes/Project/Android/Project/Challenge/dutch-news-app/app/.cxx/cmake/debug/x86_64 --target native-lib",
+      "abi": "x86_64",
+      "output": "/Volumes/Project/Android/Project/Challenge/dutch-news-app/app/build/intermediates/cmake/debug/obj/x86_64/libnative-lib.so"
+    }
+  }
+}
